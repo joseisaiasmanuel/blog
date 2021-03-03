@@ -1,0 +1,43 @@
+
+<%- include("../../partiales/header.ejs");%>
+<%- include("../../partiales/navbar.ejs");%>
+<div class="container">
+    <hr>
+<h2>Artigos</h2>
+<a class="btn btn-primary" href="/admin/articles/new">Criar nova artigos</a>
+<hr>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Slug</th>
+            <th>Categoria</th>
+            <th>Açções</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%articles.forEach(article=>{%>
+            <tr>
+            <td><%=article.id%></td>
+            <td><%=article.titulo%></td>
+            <td><%=article.slug%></td>
+            <td><%=article.categoryId%></td>
+            <td>ações</td>
+        
+            <%}) %> 
+        </tr>
+    </tbody>
+</table>
+</div>
+<%- include("../../partiales/footer.ejs");%>
+<script>
+    function confirmarDelecao(event,form){
+        event.preventDefault()
+     var decicion = confirm("vocé quer deleter os artigos")
+     if (decicion){
+      form.submit()
+
+     }
+    }
+</script>
